@@ -31,6 +31,8 @@ Also Check how many .class files are generated.
 
 package com.Day3Assignment;
 
+import java.util.ArrayList;
+
 public class InventorySystem {
 
 	public static void main(String[] args) {
@@ -48,3 +50,43 @@ public class InventorySystem {
 	}
 
 }
+
+class Store {
+	static String storeName;
+	static String storeLocation;
+	ArrayList<Product> products=new ArrayList<>();
+	void setStoreDetails(String name, String location){
+		this.storeName=name;
+		this.storeLocation=location;
+	}
+	void displayStoreDetails() {
+		System.out.println("Store Name is "+this.storeName);
+		System.out.println("Store Location is "+this.storeLocation);
+	}
+	void addProduct(Product product){
+		this.products.add(product);
+	}
+	void displayAllProducts(){
+		for(Product product:products) product.displayProduct();
+	}
+}
+
+class Product {
+	private int product_Id;
+	private String name;
+	private double price;
+	private long quantity;
+	Product(int product_Id,String name,double price,long quantity){
+		this.product_Id=product_Id;
+		this.name=name;
+		this.price=price;
+		this.quantity=quantity;
+	}
+	void displayProduct() {
+		System.out.println("Product ID is "+this.product_Id);
+		System.out.println("Product Name is "+this.name);
+		System.out.println("Price of "+this.name+" is "+this.price);
+		System.out.println("Quantity Of "+this.name+"is "+this.quantity);
+	}
+}
+
